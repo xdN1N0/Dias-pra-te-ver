@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempo para te ver, Eyshila ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #fff; /* Texto branco para contraste */
+      padding: 20px;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+
+      /* Fundo animado com entrelaçamento de cores roxo e preto */
+      background: linear-gradient(90deg, purple, black, purple);
+      background-size: 200% 200%;
+      animation: wave 5s ease-in-out infinite;
+    }
+
+    /* Animação do fundo */
+    @keyframes wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #counter {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Falta pouco para te ver, Eyshila ❤️</h1>
+
+  <!-- Texto personalizado -->
+  <p>
+    Eu conto os dias para te ver novamente. Em breve estaremos juntos de novo! 💖
+  </p>
+
+  <!-- Contador de tempo -->
+  <div id="counter">Carregando...</div>
+
+  <script>
+    // Data do próximo encontro
+    const targetDate = new Date("2025-05-22T00:00:00"); // Data do encontro
+
+    function updateCounter() {
+      const now = new Date();
+      const timeRemaining = targetDate - now; // Diferença em milissegundos
+
+      if (timeRemaining <= 0) {
+        document.getElementById("counter").textContent = "Já chegou o grande dia! ❤️";
+        return;
+      }
+
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+      const seconds = Math.floor((timeRemaining / 1000) % 60);
+
+      document.getElementById("counter").textContent =
+        `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+    }
+
+    // Atualiza o contador a cada segundo
+    setInterval(updateCounter, 1000);
+
+    // Chama a função inicialmente
+    updateCounter();
+  </script>
+</body>
+</html>
